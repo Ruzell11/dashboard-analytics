@@ -4,6 +4,7 @@ import { initializeDatabaseConnections } from "./database";
 import initializeTables from "./database/migrations";
 import { seed } from "./database/seeds";
 import router from "./routes";
+import cors from 'cors';
 
 dotenv.config(); // Load environment variables at the very start
 
@@ -12,6 +13,7 @@ const port = process.env.PORT || 3000;
 
 // Middleware to handle JSON parsing (you can add more middlewares here)
 app.use(express.json()); 
+app.use(cors())
 
 // Define your routes here
 app.get("/", (req: Request, res: Response) => {
