@@ -1,5 +1,3 @@
-import { useQuery } from "@tanstack/react-query"
-import { getAnalyticsData } from "./server"
 import DashboardContextProvider from "./store"
 import DashboardCharts from "./components/Chart"
 

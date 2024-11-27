@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { useDashboardContext } from "../store";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -12,11 +12,6 @@ interface Sale {
     total_sales: number;
 }
 
-interface SalesData {
-    totalSales: number;
-    customerCount: number;
-    recentSales: Sale[];
-}
 
 export default function SalesChart() {
     const {
@@ -35,7 +30,7 @@ export default function SalesChart() {
         const start = startDate ? new Date(startDate) : null;
         const end = endDate ? new Date(endDate) : null;
 
-        return recentSales.filter((sale) => {
+        return recentSales.filter((sale: Sale) => {
             const saleDate = new Date(sale.sale_date);
             return (
                 (!start || saleDate >= start) && (!end || saleDate <= end)
